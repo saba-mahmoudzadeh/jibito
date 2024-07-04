@@ -19,8 +19,8 @@ class CategoryFactory extends Factory
     public function definition(): array
     {
         return [
-            'title'=>$this->faker->title,
-            'icon'=>$this->faker->randomElement
+            'title'=>$this->faker->randomElement(['food', 'car', 'beauty', 'health', 'transportation']),
+            'icon'=>$this->faker->randomElement(['basket','airplane','book'])
         ];
     }
 }
