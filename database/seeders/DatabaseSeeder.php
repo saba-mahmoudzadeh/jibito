@@ -14,12 +14,40 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Category::factory()->count(10)->create();
-        // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        // User::factory(10)->create();
+       Category::factory()->create([
+            'title' => 'transportation',
+            'icon' => 'airplane',
         ]);
+
+        Category::factory()->create([
+            'title' => 'transportation',
+            'icon' => 'taxi',
+        ]);
+        Category::factory()->create([
+            'title' => 'health',
+            'icon' => 'capsule',
+        ]);
+
+        Category::factory()->create([
+            'title' => 'bank',
+            'icon' => 'bank',
+        ]);
+        Category::factory()->create([
+            'title' => 'gift',
+            'icon' => 'gift',
+        ]);
+
+        Category::factory()->create([
+            'title' => 'telephone',
+            'icon' => 'telephone',
+        ]);
+
+//
+//        User::factory()->create([
+//            'name' => 'Test User',
+//            'email' => 'test@example.com',
+//        ]);
     }
 }
