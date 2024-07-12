@@ -21,17 +21,24 @@
         </div>
 
 
-
         <div class="row mb-3">
             <div class="col-3">
-                <label for="inputEmail3" class="col-sm-2 ">Icon </label>
+                <label for="icon" >Icon</label>
             </div>
             <div class="col-9">
                 <input name="icon" type="text" class="form-control">
             </div>
         </div>
 
-
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
         <div class="row mb-3">
             <div class="col-3">
