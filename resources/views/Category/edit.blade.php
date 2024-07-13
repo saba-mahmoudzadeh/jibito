@@ -7,9 +7,18 @@
             @csrf
             <div class="row mb-3">
                 <div class="col-12">
-                    <h4>Create Category</h4>
+                    <h4>Update Category</h4>
                 </div>
 
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-3">
+                    <label for="id" >Id</label>
+                </div>
+                <div class="col-9" style="text-align: left;">
+                    {{$categories->id}}
+                </div>
             </div>
 
             <div class="row mb-3">

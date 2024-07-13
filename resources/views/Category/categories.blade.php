@@ -16,6 +16,7 @@
         <table class="table table-light table-hover">
             <thead>
             <tr>
+                <th scope="col">Id</th>
                 <th scope="col">Title</th>
                 <th scope="col">Icon</th>
                 <th scope="col">Action</th>
@@ -23,6 +24,7 @@
             </thead>
             <tbody>
             <tr>@foreach ($categories as $category)
+                    <td>{{$category->id}}</td>
                     <td>{{$category->title}}</td>
                     <td>
                         <span style="padding-right: 5px;">
