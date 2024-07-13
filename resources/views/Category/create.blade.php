@@ -16,7 +16,7 @@
                 <label for="title">Title</label>
             </div>
             <div class="col-9">
-                <input name="title" type="text" class="form-control">
+                <input name="title" type="text" class="form-control" value="{{ old('title', '') }}">
             </div>
         </div>
 
@@ -26,7 +26,7 @@
                 <label for="icon" >Icon</label>
             </div>
             <div class="col-9">
-                <input name="icon" type="text" class="form-control">
+                <input name="icon" type="text" class="form-control" value="{{ old('icon', '') }}">
             </div>
         </div>
 

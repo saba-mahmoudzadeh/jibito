@@ -17,7 +17,7 @@
                     <label for="title" >Title</label>
                 </div>
                 <div class="col-9">
-                    <input name="title" value="{{$categories->title}}" type="text" class="form-control">
+                    <input name="title" value="{{old('title', $categories->title)}}" type="text" class="form-control">
                 </div>
             </div>
 
@@ -28,7 +28,7 @@
                     <label for="icon">Icon</label>
                 </div>
                 <div class="col-9">
-                    <input name="icon" type="text" class="form-control" value="{{$categories->icon}}">
+                    <input name="icon" type="text" class="form-control" value="{{old('icon', $categories->icon)}}">
                 </div>
             </div>
             @if ($errors->any())
