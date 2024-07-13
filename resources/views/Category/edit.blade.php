@@ -31,7 +31,15 @@
                     <input name="icon" type="text" class="form-control" value="{{$categories->icon}}">
                 </div>
             </div>
-
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
 
             <div class="row mb-3">

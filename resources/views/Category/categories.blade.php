@@ -6,7 +6,7 @@
     <div class="content">
         <div class="row">
         <div class="col-3" style="color: #00d084"><h3>Categories</h3></div>
-        <div class="col-9"><a href=""><button  style="background-color: #00d084" class="btn ">Create</button></a></div>
+        <div class="col-9"><a href="{{route('categories.create')}}"><button  style="background-color: #00d084" class="btn ">Create</button></a></div>
     </div>
     </div>
 <table class="table table-light table-hover"  >

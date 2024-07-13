@@ -33,12 +33,17 @@ class CategoryController extends Controller
     }
     public function edit($id)
     {
+
     $categories = Category::query()->find($id);
     return view('Category.edit',compact('categories'));
 
     }
     public function update(Request $request,$id)
     {
+        $request->validate([
+            'title'=>['required','max:30'],
+            'icon'=>['required','max:30']
+        ]);
         $category= Category::query()->find($id);
        $category->update([
            'title'=>$request->title,
@@ -52,6 +57,5 @@ class CategoryController extends Controller
         $category= Category::query()->find($id);
         $category->delete();
         return redirect()->back();
-
     }
 }
