@@ -1,0 +1,33 @@
+<?php
+
+namespace Database\Factories;
+
+use App\Models\Category;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Entry>
+ */
+class EntryFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
+    {
+        $category = Category::factory()->create()->id;
+
+        return [
+            'category_id'=>$category,
+            'title'=>$this->faker->word(),
+            'type'=>$this->faker->randomElement(['income','expense']),
+            'amount'=>$this->faker->randomNumber(3, false),
+            'entry_date'=>$this->faker->date('Y_m_d'),
+            'description'=>$this->faker->text(),
+            'file'=>null
+
+        ];
+    }
+}

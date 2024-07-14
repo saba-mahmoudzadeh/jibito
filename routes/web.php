@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\EntryController;
 use App\Http\Controllers\IndexController;
 use Illuminate\Support\Facades\Route;
 
@@ -11,3 +12,5 @@ Route::post('categories/store',[CategoryController::class,'store'])->name('categ
 Route::delete('categories/delete/{id}',[CategoryController::class,'destroy'])->name('categories.destroy');
 Route::get('categories/edit/{id}',[CategoryController::class,'edit'])->name('categories.edit');
 Route::put('categories/update/{id}',[CategoryController::class,'update'])->name('categories.update');
+
+Route::get('/entries/create',[EntryController::class,'create'])->name('entries.create');
