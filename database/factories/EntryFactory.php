@@ -17,17 +17,16 @@ class EntryFactory extends Factory
      */
     public function definition(): array
     {
-        $category = Category::factory()->create()->id;
-
         return [
-            'category_id'=>$category,
+            'category_id'=>function () {
+                return Category::factory()->create()->id;
+            },
             'title'=>$this->faker->word(),
             'type'=>$this->faker->randomElement(['income','expense']),
             'amount'=>$this->faker->randomNumber(3, false),
             'entry_date'=>$this->faker->date('Y_m_d'),
             'description'=>$this->faker->text(),
             'file'=>null
-
         ];
     }
 }

@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Entry::factory(10)->create();
+
         // User::factory(10)->create();
        Category::factory()->create([
             'title' => 'transportation',
@@ -45,6 +45,15 @@ class DatabaseSeeder extends Seeder
             'icon' => 'telephone',
         ]);
 
+        $categories = Category::all();
+
+        for($i=0;$i<10;$i++)
+            {
+                Entry::factory(
+                    )->create([
+                    'category_id'=>$categories->random()->id
+                ]);
+            }
 //
 //        User::factory()->create([
 //            'name' => 'Test User',
