@@ -14,3 +14,4 @@ Route::get('categories/edit/{id}',[CategoryController::class,'edit'])->name('cat
 Route::put('categories/update/{id}',[CategoryController::class,'update'])->name('categories.update');
 
 Route::get('/entries/create',[EntryController::class,'create'])->name('entries.create');
+Route::get('/entries/index',[EntryController::class,'index'])->name('entries.index');

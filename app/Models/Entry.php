@@ -19,3 +19,4 @@ class Entry extends Model
         'file'
     ];
 }
+

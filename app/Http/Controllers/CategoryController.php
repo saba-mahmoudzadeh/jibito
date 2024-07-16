@@ -61,7 +61,6 @@ class CategoryController extends Controller
     {
         $category = Category::query()->find($id);
         $category->delete();
-
         return redirect()->back();
     }
 }

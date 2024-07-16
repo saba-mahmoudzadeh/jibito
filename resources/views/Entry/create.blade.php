@@ -13,7 +13,7 @@
                 </div>
 
                 <div class="row mb-3">
-                    <div class="col-3">
+                    <div class="col-3 " >
                         <label for="title">Title</label>
                     </div>
                     <div class="col-9">
@@ -23,7 +23,7 @@
 
                 <div class="row mb">
                     <div class="col-3">
-                        <label for="text" class="col-sm-2 ">Amount</label>
+                        <label for="text">Amount</label>
                     </div>
                     <div class="col-9">
                         <input name="title" type="text" class="form-control">
@@ -35,11 +35,11 @@
                     </div>
                     <div class="col-9">
                         <div class="form-check form-check-inline ">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                            <input class="form-check-input" type="radio" name="income" id="inlineRadio1" value="income">
                             <label class="form-check-label" for="inlineRadio1">Income</label>
                         </div>
                         <div class="form-check form-check-inline"  style="margin-top: 10px; margin-bottom: 10px">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <input class="form-check-input" type="radio" name="expense" id="inlineRadio2" value="expense">
                             <label class="form-check-label" for="inlineRadio2">Expense</label>
                         </div>
                     </div>
@@ -47,16 +47,16 @@
 
                 <div class="row mb-3">
                     <div class="col-3">
-                        <label for="inputEmail3" class="col-sm-2 ">Date</label>
+                        <label for="inputEmail3">Date</label>
                     </div>
                     <div class="col-9">
-                        <input type="text" class="form-control" id="datepicker" width="230">
+                        <input name="date" type="text" class="form-control" id="datepicker" width="230">
                     </div>
                 </div>
 
                 <div class="row mb-3">
                     <div class="col-3">
-                        <label for="inputEmail3" class="col-sm-2 ">Category</label>
+                        <label for="inputEmail3" >Category</label>
                     </div>
                     <div class="col-9">
                         <select class="form-select form-control" id="specificSizeSelect">
@@ -70,7 +70,7 @@
 
                 <div class="row mb-3">
                     <div class="col-3">
-                        <label for="inputEmail3" class="col-sm-2 ">Description</label>
+                        <label for="inputEmail3">Description</label>
                     </div>
                     <div class="col-9">
                         <div class="input-group">
@@ -81,7 +81,7 @@
 
                 <div class="row mb-3">
                     <div class="col-3">
-                        <label for="formFile" class=" col-sm-2" >file</label>
+                        <label for="formFile" >file</label>
                     </div>
                     <div class="col-9">
                         <input class="form-control"  type="file" id="formFile">
