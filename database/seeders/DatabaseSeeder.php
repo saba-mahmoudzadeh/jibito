@@ -23,10 +23,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Category::factory()->create([
-            'title' => 'transportation',
-            'icon' => 'taxi',
-        ]);
-        Category::factory()->create([
             'title' => 'health',
             'icon' => 'capsule',
         ]);
