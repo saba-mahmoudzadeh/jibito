@@ -1,3 +1,4 @@
+use Carbon\Carbon;
 @extends('layout')
 @section('content')
     <div class="container" style="max-width: 430px;">
@@ -21,26 +22,33 @@
 
         @foreach($entries as $entry)
 
-        <div class="card" style="color: black; padding:8px;margin-left: 8px">
+        <div class="card" style="color: black; padding:8px;margin-left: 8px;margin-bottom: 5px">
             <div class="row">
                 <div class="col-3">
-                    <div class="income justify-content-center" style="border-radius: .25rem;">
+               @if ($entry->type == 'income')
+                    <div class="income justify-content-center" style="border-radius: .25rem;  background-color: #69E6A6;">
+                        <span class="align-self-center" style="font-size: 1.4rem; font-weight: bold;">+{{$entry->amount}}</span>
 
-                        <span class="align-self-center" style="font-size: 1.4rem; font-weight: bold;">{{$entry->amount}}</span>
+                        @else
+                            <div class="income justify-content-center" style="border-radius: .25rem;  background-color: red;">
+                                <span class="align-self-center" style="font-size: 1.4rem; font-weight: bold;">-{{$entry->amount}}</span>
+                                @endif
+
 
                     </div>
+
                 </div>
                 <div class="col-7">
-                    <div style="margin-left: -10px">
-                        <div style=" margin-top: 0.2rem; font-size: 1.1rem;font-weight: bold">{{$entry->type}}</div>
-                        <div style="font-size: 0.75rem; color: #888; margin-top: 0.3rem;">{{$entry->title}}</div>
+                    <div style="margin-left: -10px; text-align: left">
+                        <div style=" margin-top: 0.2rem; font-size: 1.1rem;font-weight: bold">{{$entry->title}}</div>
+                        <div style="font-size: 0.75rem; color: #888; margin-top: 0.3rem;">{{$entry->description}}</div>
                     </div>
                 </div>
 
                 <div class="col-2">
                     <div style="text-align: center; font-size: 0.6rem; color: #555; margin-top: 0.6rem;">{{$entry->entry_date}}</div>
 
-                    <div style="text-align: center; margin-top: 0.2rem;"><i class="bi bi-"></i></div>
+                    <div style="text-align: center; margin-top: 0.2rem;"><i class="bi bi-{{$entry->category->icon}}" data-toggle="tooltip" data-placement="top" title="{{$entry->category->title}}"></i></div>
 
                 </div>
             </div>
