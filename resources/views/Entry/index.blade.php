@@ -38,17 +38,19 @@ use Carbon\Carbon;
                     </div>
 
                 </div>
-                <div class="col-7">
+                <div class="col-6">
                     <div style="margin-left: -10px; text-align: left">
                         <div style=" margin-top: 0.2rem; font-size: 1.1rem;font-weight: bold">{{$entry->title}}</div>
                         <div style="font-size: 0.75rem; color: #888; margin-top: 0.3rem;">{{$entry->description}}</div>
                     </div>
                 </div>
 
-                <div class="col-2">
-                    <div style="text-align: center; font-size: 0.6rem; color: #555; margin-top: 0.6rem;">{{$entry->entry_date}}</div>
+                <div class="col-3">
+                    <div style="text-align: center; font-size: 0.7rem; color: #555; margin-top: 0.9rem;">{{gmdate('d-m-Y')}}</div>
 
-                    <div style="text-align: center; margin-top: 0.2rem;"><i class="bi bi-{{$entry->category->icon}}" data-toggle="tooltip" data-placement="top" title="{{$entry->category->title}}"></i></div>
+                    <div style="text-align: center; margin-top: 0.8rem;"><i class="bi bi-{{$entry->category->icon}}" data-toggle="tooltip" data-placement="top" title="{{$entry->category->title}}"></i></div>
+
+
 
                 </div>
             </div>
