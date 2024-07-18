@@ -22,7 +22,7 @@
 
         @foreach($entries as $entry)
 
-        <div class="card" style="color: black; padding:8px;margin-left: 8px;margin-bottom: 5px">
+        <div class="card" style="color: black; padding:8px;margin-left: 8px;margin-bottom: 10px">
             <div class="row">
                 <div class="col-3">
                @if ($entry->type == 'income')
@@ -41,12 +41,19 @@
                 <div class="col-6">
                     <div style="margin-left: -10px; text-align: left">
                         <div style=" margin-top: 0.2rem; font-size: 1.1rem;font-weight: bold">{{$entry->title}}</div>
-                        <div style="font-size: 0.75rem; color: #888; margin-top: 0.3rem;">{{$entry->description}}</div>
+                        <div style="font-size: 0.75rem; color: #888; margin-top: 0.3rem;">
+                            @if(strlen($entry->description)<30)
+                                <div >{{$entry->description}}</div>
+                            @else
+                                <div  data-toggle='tooltip' data-placement='top' title='{{$entry->description}}'>{{substr($entry->description,0,30)."..."}}</div>
+
+                            @endif
+                            </div>
                     </div>
                 </div>
 
                 <div class="col-3">
-                    <div style="text-align: center; font-size: 0.7rem; color: #555; margin-top: 0.9rem;">{{gmdate('d-m-Y')}}</div>
+                    <div style="text-align: center; font-size: 0.7rem; color: #555; margin-top: 0.2rem;">{{gmdate('Y-m-d',strtotime($entry->entry_date))}}</div>
 
                     <div style="text-align: center; margin-top: 0.8rem;"><i class="bi bi-{{$entry->category->icon}}" data-toggle="tooltip" data-placement="top" title="{{$entry->category->title}}"></i></div>
 
