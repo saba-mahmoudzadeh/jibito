@@ -20,6 +20,7 @@
     </div>
     <nav>
         <a href="{{route('categories.index')}}">Categories</a>
+        <a href="{{route('entries.index')}}">entries</a>
         <a href="{{route('home.index')}}">Home</a>
         <button class="login">Login</button>
     </nav>

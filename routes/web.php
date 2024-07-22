@@ -15,4 +15,7 @@ Route::put('categories/update/{id}',[CategoryController::class,'update'])->name(
 
 Route::get('/entries/create',[EntryController::class,'create'])->name('entries.create');
 Route::get('/entries/index',[EntryController::class,'index'])->name('entries.index');
-Route::post('/entries/store',[EntryController::class,'store'])->name('entries.store');
+Route::post('entries/store',[EntryController::class,'store'])->name('entries.store');
+Route::get('entries/edit/{id}',[EntryController::class,'edit'])->name('entries.edit');
+Route::put('entries/update/{id}',[EntryController::class,'update'])->name('entries.update');
+Route::delete('entries/delete/{id}',[EntryController::class,'destroy'])->name('entries.destroy');

@@ -1,6 +1,6 @@
-
 @extends('layout')
 @section('content')
+
     <div class="container" style="max-width: 430px;">
 
         <div class="row mb-2">
@@ -14,7 +14,7 @@
         <div class="row mb-3">
             <div class="col-4">
                 <div>
-                    <button class="btn btn-secondary" >Add Entry</button>
+                    <a class="btn btn-secondary" href="{{route('entries.create')}}">Add Entry</a>
                 </div>        </div>
             <div class="col-8">
             </div>
@@ -50,6 +50,15 @@
                             @endif
                             </div>
                     </div>
+                    <div><a class="btn btn-warning" href="{{route('entries.edit',$entry->id)}}">Edit</a></div>
+                    <form action="{{route('entries.destroy',$entry->id)}}" method="post">
+
+                        {{method_field('DELETE')}}
+                        @csrf
+                        <div><button class="btn btn-danger" >Delete</button></div>
+                    </form>
+
+
                 </div>
 
                 <div class="col-3">

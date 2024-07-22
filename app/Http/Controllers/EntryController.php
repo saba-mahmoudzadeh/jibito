@@ -11,7 +11,6 @@ class EntryController extends Controller
     public function index()
     {
 
-
         $entries = Entry::all();
         return view('Entry.index',compact('entries'));
     }
@@ -25,6 +24,16 @@ class EntryController extends Controller
     public function store(Request $request)
     {
 
+        $request->validate([
+            'category_id'=>['required','exists:categories,id'],
+            'title'=>['required', 'max:50'],
+            'type'=>['required', 'in:income,expense'],
+            'amount'=>['required','integer','min:0','max:10000000'],
+            'entry_date'=>['required','date_format:Y-m-d'],
+            'description'=>[ 'max:300'],
+
+        ]);
+
         Entry::query()->create([
             'category_id'=>$request->category_id,
             'title'=>$request->title,
@@ -35,6 +44,43 @@ class EntryController extends Controller
 
 
         ]);
+
         return redirect(route('entries.index'));
     }
+
+    public function edit($id)
+    {
+
+        $categories = Category::all();
+        $entries = Entry::query()->find($id);
+        return view('Entry.edit',compact('entries','categories'));
+
+
+    }
+    public function update(Request $request, $id)
+    {
+
+
+        $entry = Entry::query()->find($id);
+        $entry->update([
+            'category_id'=>$request->category_id,
+            'title'=>$request->title,
+            'type'=>$request->type,
+            'amount'=>$request->amount,
+            'entry_date'=>$request->entry_date,
+            'description'=>$request->description,
+
+        ]);
+
+        return redirect(route('entries.index'));
+
+    }
+
+    public function destroy($id)
+    {
+        $entry = Entry::query()->find($id);
+        $entry->delete();
+        return redirect()->back();
+    }
+
 }
