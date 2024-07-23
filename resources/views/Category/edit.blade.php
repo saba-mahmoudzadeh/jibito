@@ -55,7 +55,7 @@
                 <div class="col-3">
                 </div>
                 <div class="col-9" style='margin-left: 55%'>
-                    <button type="submit" class="btn btn-danger"><a class="white" href="{{route('home.index')}}">Back</a></button>
+                    <button type="submit" class="btn btn-danger"><a class="white" href="{{route('categories.index')}}">Back</a></button>
 
                     <button type="submit" class="btn btn-primary">Save</button>
                 </div>
