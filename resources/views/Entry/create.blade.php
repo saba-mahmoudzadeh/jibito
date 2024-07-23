@@ -24,7 +24,7 @@
                         <label for="title">Title</label>
                     </div>
                     <div class="col-9">
-                        <input name="title" type="text" class="form-control">
+                        <input name="title" type="text" class="form-control" value="{{ old('title', '') }}">
                     </div>
                 </div>
 
@@ -33,24 +33,26 @@
                         <label for="text">Amount</label>
                     </div>
                     <div class="col-9">
-                        <input name="amount" type="text" class="form-control">
+                        <input name="amount" type="text" class="form-control" value="{{ old('amount', '') }}">
                     </div>
                 </div>
 
                 <div class="row mb-3">
                     <div class="col-3">
                     </div>
+
                     <div class="col-9">
                         <div class="form-check form-check-inline ">
-                            <input class="form-check-input" type="radio" name="type" id="inlineRadio1" value="income">
+                            <input class="form-check-input" type="radio" name="type" id="inlineRadio1" value="income" @if(old('type','')=='income') checked @endif>
                             <label class="form-check-label" for="inlineRadio1">Income</label>
                         </div>
 
                         <div class="form-check form-check-inline"  style="margin-top: 10px; margin-bottom: 10px">
-                            <input class="form-check-input" type="radio" name="type" id="inlineRadio2" value="expense">
+                            <input class="form-check-input" type="radio" name="type" id="inlineRadio2" value="expense" @if(old('type','')=='expense') checked @endif>
                             <label class="form-check-label" for="inlineRadio2">Expense</label>
                         </div>
                     </div>
+
                 </div>
 
                 <div class="row mb-3">
@@ -58,7 +60,7 @@
                         <label for="entry_date">Date</label>
                     </div>
                     <div class="col-9">
-                        <input name="entry_date" type="text" class="form-control" id="datepicker" width="230">
+                        <input name="entry_date" type="text" class="form-control" id="datepicker" width="230" value="{{ old('entry_date', '') }}">
                     </div>
                 </div>
 
@@ -68,10 +70,9 @@
                     </div>
                     <div class="col-9">
                         <select class="form-select form-control"  name="category_id" id="specificSizeSelect">
-                            <option selected class="form-control" value="">Choose...</option>
+                            <option  class="form-control" value="" @if(old('category_id','')=='')selected @endif>Choose...</option>
                             @foreach($categories as $category)
-
-                            <option value="{{$category->id}}">{{$category->title}}</option>
+                            <option value="{{$category->id}}" @if(old('category_id','')==$category->id)selected @endif>{{$category->title}}</option>
 
 
                             @endforeach
@@ -85,7 +86,7 @@
                     </div>
                     <div class="col-9">
                         <div class="input-group">
-                            <textarea name="description" class="form-control" style="padding-left: 30px" aria-label="With textarea"></textarea>
+                            <textarea name="description" class="form-control" style="padding-left: 30px" aria-label="With textarea">{{ old('description', '') }}</textarea>
                         </div>
                     </div>
                 </div>
