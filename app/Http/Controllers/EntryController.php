@@ -12,12 +12,15 @@ class EntryController extends Controller
     {
 
         $entries = Entry::all();
-        return view('Entry.index',compact('entries'));
+        $totalAmount = $this->sumAmount($entries);
+
+        return view('Entry.index',compact('entries','totalAmount'));
     }
     public function create()
     {
+        $entries = Entry::all();
         $categories = Category::all();
-        return view('Entry.create',compact('categories'));
+        return view('Entry.create',compact('categories','entries'));
 
 
     }
@@ -82,5 +85,27 @@ class EntryController extends Controller
         $entry->delete();
         return redirect()->back();
     }
+
+    public function sumAmount($entries)
+    {
+        $x=0;
+        $sum = 0;
+        foreach ($entries as $entry)
+        {
+            if ($entry->type == 'income')
+
+            {
+                $x = + ($entry->amount);
+            }
+            if ($entry->type == 'expense')
+            {
+                $x = -($entry->amount);
+            }
+            $sum+=$x;
+        }
+
+        return $sum;
+    }
+
 
 }

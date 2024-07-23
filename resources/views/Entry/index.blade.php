@@ -8,7 +8,11 @@
                 <div>  <p style="display:inline-block;font-size: larger;font-weight: bold; ">Saba Mhz</p></div>
             </div>
             <div class="col-8">
-                <div><p style=" color: #69E6A6; display:inline-block;font-weight: bold;font-size: 1.5em;margin-left: 100px">+126.54</p></div>
+                @if($totalAmount > 0)
+                <div><p style=" color: #69E6A6; display:inline-block;font-weight: bold;font-size: 1.5em;margin-left: 100px">+{{$totalAmount}} </p></div>
+                @else
+                    <div><p style=" color: #69E6A6; display:inline-block;font-weight: bold;font-size: 1.5em;margin-left: 100px">-{{$totalAmount}} </p></div>
+                @endif
             </div>
         </div>
         <div class="row mb-3">
