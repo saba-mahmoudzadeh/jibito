@@ -59,7 +59,7 @@
                     <label for="entry_date">Date</label>
                 </div>
                 <div class="col-9">
-                    <input name="entry_date" type="text" class="form-control" id="datepicker" width="230" value="{{old('entry_date',$entries->entry_date)}}">
+                    <input name="entry_date" type="text" class="form-control" id="datepicker" width="230" value="{{old('entry_date',gmdate('Y-m-d',strtotime($entries->entry_date)))}}">
                 </div>
             </div>
 
