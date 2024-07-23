@@ -54,14 +54,15 @@
                             @endif
                             </div>
                     </div>
-                    <div><a class="btn btn-warning" href="{{route('entries.edit',$entry->id)}}">Edit</a></div>
+                    <div>
+                    <div><a href="{{route('entries.edit',$entry->id)}}"><i class="bi bi-pencil-square"></i></a></div>
                     <form action="{{route('entries.destroy',$entry->id)}}" method="post">
 
                         {{method_field('DELETE')}}
                         @csrf
-                        <div><button class="btn btn-danger" >Delete</button></div>
+                        <div ><button style="border: none;background-color: white"><i class="bi bi-x"></i></button></div>
                     </form>
-
+                    </div>
 
                 </div>
 
