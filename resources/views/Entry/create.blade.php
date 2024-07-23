@@ -115,7 +115,7 @@
         <script>
             $('#datepicker').datepicker({
                 uiLibrary: 'bootstrap5',
-                format: 'yyyy-dd-mm'
+                format: 'yyyy-mm-dd'
 
             });
         </script>

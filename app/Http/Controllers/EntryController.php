@@ -62,7 +62,15 @@ class EntryController extends Controller
     }
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'category_id'=>['required','exists:categories,id'],
+            'title'=>['required', 'max:50'],
+            'type'=>['required', 'in:income,expense'],
+            'amount'=>['required','integer','min:0','max:10000000'],
+            'entry_date'=>['required','date_format:Y-m-d'],
+            'description'=>[ 'max:300'],
 
+        ]);
 
         $entry = Entry::query()->find($id);
         $entry->update([
