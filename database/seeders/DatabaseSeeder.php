@@ -22,16 +22,11 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'Admin',
             'email' => 'admin@gmail.com',
-            'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('password'),
-            'remember_token' => Str::random(10),
+
         ]);
         User::factory()->create([
             'name' => 'Saba',
             'email' => 'sa1371ba@gmail.com',
-            'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('password'),
-            'remember_token' => Str::random(10),
         ]);
 
         // User::factory(10)->create();

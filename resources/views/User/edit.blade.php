@@ -44,7 +44,7 @@
                 </div>
 
                 <div class="col-9">
-                    <input name="password" type="password" class="form-control" value="{{$user->password}}">
+                    <input name="password" type="password" class="form-control" value="">
                 </div>
 
 

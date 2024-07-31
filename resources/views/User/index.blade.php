@@ -25,7 +25,7 @@
             <tr>@foreach ($users as $user)
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
-                    <td>{{$user->password}}</td>
+
                     <td>
                         <a class="btn btn-warning" href="{{route('users.edit',$user->id)}}">
                             Edit
