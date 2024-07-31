@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
@@ -47,31 +48,28 @@ class UserController extends Controller
     {
         $validatedData = $request->validate([
             'name' => ['required','string','max:255'],
-            'email' => ['required','string','email','max:255'],
+            'email' => ['required','string','email','max:255',Rule::unique('users', 'email')->ignore($id)],
             'password'=>['nullable','string','min:8']
-
-
         ]);
-     if($request->password == null)
-     {
-         $user = User::query()->find($id);
-         $user->update([
-             'name'=>$request->name,
-             'email'=>$request->email,
-         ]);
-     }
-else
-{
-    $hashedPassword = Hash::make($validatedData['password']);
-    $user = User::query()->find($id);
-    $user->update([
-        'name'=>$request->name,
-        'email'=>$request->email,
-        'password'=>$hashedPassword
 
-    ]);
-}
-
+         if ($request->password == null)
+         {
+             $user = User::query()->find($id);
+             $user->update([
+                 'name'=>$request->name,
+                 'email'=>$request->email,
+             ]);
+         }
+        else
+        {
+            $hashedPassword = Hash::make($validatedData['password']);
+            $user = User::query()->find($id);
+            $user->update([
+                'name'=>$request->name,
+                'email'=>$request->email,
+                'password'=>$hashedPassword
+            ]);
+        }
 
         return redirect(route('users.index'));
     }
