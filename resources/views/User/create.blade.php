@@ -4,12 +4,7 @@
     <div class="container d-flex justify-content-center " >
         <form action="{{route('users.store')}}" method="post">
             @csrf
-            <div class="row mb-3">
-                <div class="col-5">
-                    <h4>Login</h4>
-                </div>
-                <div class="col-7"></div>
-            </div>
+            <h4 class="mb-3"  style="text-align: left;">Create User</h4>
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -43,7 +38,7 @@
                 </div>
 
                 <div class="col-9">
-                    <input name="password" type="password" class="form-control" value="">
+                    <input name="password" type="text" class="form-control" value="">
                 </div>
 
 

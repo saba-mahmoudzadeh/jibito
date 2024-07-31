@@ -5,12 +5,7 @@
         <form action="{{route('users.update',$user->id)}}" method="post">
             @csrf
             {{method_field('PUT')}}
-            <div class="row mb-3">
-                <div class="col-5">
-                    <h4>Login</h4>
-                </div>
-                <div class="col-7"></div>
-            </div>
+            <h4 class="mb-3" style="text-align: left;">Update User</h4>
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -44,7 +39,7 @@
                 </div>
 
                 <div class="col-9">
-                    <input name="password" type="password" class="form-control" value="">
+                    <input name="password" type="text" class="form-control" value="">
                 </div>
 
 
