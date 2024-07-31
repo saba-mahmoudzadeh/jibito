@@ -45,13 +45,34 @@ class UserController extends Controller
     }
     public function update(Request $request,$id)
     {
-        $user = User::query()->find($id);
-        $user->update([
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'password'=>$request->password
+        $validatedData = $request->validate([
+            'name' => ['required','string','max:255'],
+            'email' => ['required','string','email','max:255'],
+            'password'=>['nullable','string','min:8']
+
 
         ]);
+     if($request->password == null)
+     {
+         $user = User::query()->find($id);
+         $user->update([
+             'name'=>$request->name,
+             'email'=>$request->email,
+         ]);
+     }
+else
+{
+    $hashedPassword = Hash::make($validatedData['password']);
+    $user = User::query()->find($id);
+    $user->update([
+        'name'=>$request->name,
+        'email'=>$request->email,
+        'password'=>$hashedPassword
+
+    ]);
+}
+
+
         return redirect(route('users.index'));
     }
     public function destroy($id)
