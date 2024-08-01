@@ -20,7 +20,7 @@
                     <label for="title">Name</label>
                 </div>
                 <div class="col-9">
-                    <input name="name" type="text" class="form-control" value="{{$user->name}}">
+                    <input name="name" type="text" class="form-control" value="{{old('name',$user->name)}}">
                 </div>
             </div>
 
@@ -29,7 +29,7 @@
                     <label for="text">Email</label>
                 </div>
                 <div class="col-9">
-                    <input name="email" type="email" class="form-control" value="{{$user->email}}">
+                    <input name="email" type="email" class="form-control" value="{{old('email',$user->email)}}">
                 </div>
             </div>
 
