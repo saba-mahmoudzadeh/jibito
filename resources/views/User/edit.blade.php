@@ -39,7 +39,7 @@
                 </div>
 
                 <div class="col-9">
-                    <input name="password" type="text" class="form-control" value="">
+                    <input name="password" type="text" class="form-control" value="{{old('password','')}}">
                 </div>
 
 
