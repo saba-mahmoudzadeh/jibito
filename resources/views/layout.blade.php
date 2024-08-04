@@ -22,6 +22,7 @@
         <a href="{{route('categories.index')}}">Categories</a>
         <a href="{{route('entries.index')}}">Entries</a>
         <a href="{{route('home.index')}}">Home</a>
+        <a href="{{route('users.index')}}">Users</a>
         <button class="login">Login</button>
     </nav>
 

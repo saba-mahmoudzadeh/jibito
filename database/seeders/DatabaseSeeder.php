@@ -7,14 +7,27 @@ use App\Models\Entry;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
+    private static string $password;
+
     /**
      * Seed the application's database.
      */
     public function run(): void
     {
+        User::factory()->create([
+            'name' => 'Admin',
+            'email' => 'admin@gmail.com',
+
+        ]);
+        User::factory()->create([
+            'name' => 'Saba',
+            'email' => 'sa1371ba@gmail.com',
+        ]);
 
         // User::factory(10)->create();
        Category::factory()->create([

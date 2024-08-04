@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EntryController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',[IndexController::class,'index'])->name('home.index');
@@ -19,3 +20,10 @@ Route::post('entries/store',[EntryController::class,'store'])->name('entries.sto
 Route::get('entries/edit/{id}',[EntryController::class,'edit'])->name('entries.edit');
 Route::put('entries/update/{id}',[EntryController::class,'update'])->name('entries.update');
 Route::delete('entries/delete/{id}',[EntryController::class,'destroy'])->name('entries.destroy');
+
+Route::get('users/index',[UserController::class,'index'])->name('users.index');
+Route::get('users/create',[UserController::class,'create'])->name('users.create');
+Route::post('users/store',[UserController::class,'store'])->name('users.store');
+Route::get('users/edit/{id}',[UserController::class,'edit'])->name('users.edit');
+Route::put('users/update/{id}',[UserController::class,'update'])->name('users.update');
+Route::delete('users/delete/{id}',[UserController::class,'destroy'])->name('users.destroy');

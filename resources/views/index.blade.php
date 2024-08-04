@@ -23,7 +23,8 @@
 
         <a href="{{route('categories.index')}}">Categories</a>
         <a href="{{route('categories.create')}}"> Create Category</a>
-        <button class="login">Login</button>
+        <a href="{{route('users.index')}}">Users</a>
+        <a href=""><button class="login" >Login</button></a>
     </nav>
 
 </header>
