@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EntryController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\UserController;
@@ -27,3 +31,13 @@ Route::post('users/store',[UserController::class,'store'])->name('users.store');
 Route::get('users/edit/{id}',[UserController::class,'edit'])->name('users.edit');
 Route::put('users/update/{id}',[UserController::class,'update'])->name('users.update');
 Route::delete('users/delete/{id}',[UserController::class,'destroy'])->name('users.destroy');
+
+Route::get("/register", [RegisterController::class, 'create'])->name('register');
+Route::post("/register", [RegisterController::class, 'store'])->name('register.store');
+
+Route::get('login', [LoginController::class, 'create'])->name('login');
+Route::post('login', [LoginController::class, 'store'])->name('login.store');
+
+Route::get('dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
+
+Route::post('logout', LogoutController::class)->name('logout');

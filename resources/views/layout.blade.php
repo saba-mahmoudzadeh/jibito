@@ -19,11 +19,13 @@
         <span class="logo-icon"></span> Jibito
     </div>
     <nav>
+        <a href="{{route('home.index')}}">Home</a>
         <a href="{{route('categories.index')}}">Categories</a>
         <a href="{{route('entries.index')}}">Entries</a>
-        <a href="{{route('home.index')}}">Home</a>
         <a href="{{route('users.index')}}">Users</a>
-        <button class="login">Login</button>
+
+        <a class="login" href="{{route('login')}}">Login</a>
+        <a href="{{route('register')}}" class="sign-up">Register</a>
     </nav>
 
 </header>

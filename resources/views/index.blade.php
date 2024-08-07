@@ -33,7 +33,7 @@
         <div style="color: #00d084"><h1>Jibito</h1></div>
         <h3>Managing and Organizing Your Wallet</h3>
         <div class="buttons">
-            <button class="sign-up">Sign up</button>
+            <a href="{{route('register')}}" style="text-decoration: none" class="sign-up">Register</a>
             <button class="add">Add</button>
         </div>
     </div>
