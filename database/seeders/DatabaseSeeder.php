@@ -55,15 +55,23 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $categories = Category::all();
+        $users = User::all();
 
         for($i=0;$i<10;$i++)
             {
-                Entry::factory(
-                    )->create([
-                    'category_id'=>$categories->random()->id
+                Entry::factory()->create([
+                    'category_id'=>$categories->random()->id,
+                    'user_id'=>$users->random()->id,
                 ]);
             }
-//
+//نکته:دو روش برای اجرای فکتوری مربوط به اینتری ها
+//        for($i=0;$i<10;$i++)
+//        {
+//            Entry::factory()->create([
+//                'category_id'=>rand(1,Category::count()),
+//                'user_id'=>$users->random()->id,
+//            ]);
+//        }
 //        User::factory()->create([
 //            'name' => 'Test User',
 //            'email' => 'test@example.com',

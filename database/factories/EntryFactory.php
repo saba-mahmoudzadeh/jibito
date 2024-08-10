@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -20,6 +21,9 @@ class EntryFactory extends Factory
         return [
             'category_id'=>function () {
                 return Category::factory()->create()->id;
+            },
+            'user_id'=>function () {
+                return User::factory()->create()->id;
             },
             'title'=>$this->faker->word(),
             'type'=>$this->faker->randomElement(['income','expense']),
