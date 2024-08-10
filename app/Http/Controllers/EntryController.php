@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Entry;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EntryController extends Controller
 {
@@ -26,7 +27,6 @@ class EntryController extends Controller
     }
     public function store(Request $request)
     {
-
         $request->validate([
             'category_id'=>['required','exists:categories,id'],
             'title'=>['required', 'max:50'],
@@ -34,18 +34,17 @@ class EntryController extends Controller
             'amount'=>['required','integer','min:0','max:10000000'],
             'entry_date'=>['required','date_format:Y-m-d'],
             'description'=>[ 'max:300'],
-
         ]);
 
+        $user = Auth::user();
         Entry::query()->create([
             'category_id'=>$request->category_id,
+            'user_id'=>$user->id,
             'title'=>$request->title,
             'type'=>$request->type,
             'amount'=>$request->amount,
             'entry_date'=>$request->entry_date,
             'description'=>$request->description,
-
-
         ]);
 
         return redirect(route('entries.index'));
