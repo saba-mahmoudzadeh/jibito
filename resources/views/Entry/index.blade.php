@@ -5,7 +5,7 @@
 
         <div class="row mb-2">
             <div class="col-4">
-                <div>  <p style="display:inline-block;font-size: larger;font-weight: bold; ">Saba Mhz</p></div>
+                <div>  <p style="display:inline-block;font-size: larger;font-weight: bold; ">{{auth()->user()->name}}</p></div>
             </div>
             <div class="col-8">
                 @if($totalAmount > 0)
