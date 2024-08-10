@@ -11,8 +11,8 @@ class EntryController extends Controller
 {
     public function index()
     {
-
-        $entries = Entry::all();
+        $user = Auth::user();
+        $entries = Entry::query()->where('user_id', $user->id)->get();
         $totalAmount = $this->sumAmount($entries);
 
         return view('Entry.index',compact('entries','totalAmount'));
