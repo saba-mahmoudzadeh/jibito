@@ -24,7 +24,10 @@
         <a href="{{route('categories.index')}}">Categories</a>
         <a href="{{route('categories.create')}}"> Create Category</a>
         <a href="{{route('users.index')}}">Users</a>
-        <a class="login" href="{{route('login')}}">Login</a>
+        <form style="display: inline-block" method="POST" action="{{ route('logout')}}"  >
+            @csrf
+            <button class="sign-up" style="margin-bottom:10px; align-self: center" type="submit">Logout</button>
+        </form>
     </nav>
 
 </header>

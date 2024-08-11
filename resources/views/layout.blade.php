@@ -14,28 +14,38 @@
 
 </head>
 <body class="d-flex h-100 text-center text-white" style="background-color: #00063F">
+@if (Auth::check())
 <header>
+
     <div class="logo">
-        <span class="logo-icon"></span> Jibito
+     @yield('nav')
     </div>
+
     <nav>
         <a href="{{route('home.index')}}">Home</a>
         <a href="{{route('categories.index')}}">Categories</a>
         <a href="{{route('entries.index')}}">Entries</a>
         <a href="{{route('users.index')}}">Users</a>
 
-        <a class="login" href="{{route('login')}}">Login</a>
-        <a href="{{route('register')}}" class="sign-up">Register</a>
     </nav>
-
 </header>
+@else
+    <header>
+        <div class="logo">
+            <span class="logo-icon"></span> Jibito
+        </div>
+        <nav>
+            <a href="{{route('home.index')}}">Home</a>
+            <a href="{{route('categories.index')}}">Categories</a>
+            <a href="{{route('entries.index')}}">Entries</a>
+            <a href="{{route('users.index')}}">Users</a>
 
+            <a class="login" href="{{route('login')}}">Login</a>
+            <a href="{{route('register')}}" class="sign-up">Register</a>
+        </nav>
 
-
-
-
-
-
+    </header>
+@endif
 @yield('content')
 
 
