@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Entry;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -54,13 +55,25 @@ class EntryController extends Controller
     {
 
         $categories = Category::all();
+        $user = auth()->user();
         $entries = Entry::query()->find($id);
+        if ($user->id != $entries->user_id)
+        {
+            abort(403);
+        }
         return view('Entry.edit',compact('entries','categories'));
 
 
     }
     public function update(Request $request, $id)
     {
+        $entry = Entry::query()->find($id);
+        $user = auth()->user();
+
+        if ($user->id != $entry->user_id)
+        {
+            abort(403);
+        }
         $request->validate([
             'category_id'=>['required','exists:categories,id'],
             'title'=>['required', 'max:50'],
@@ -71,7 +84,6 @@ class EntryController extends Controller
 
         ]);
 
-        $entry = Entry::query()->find($id);
         $entry->update([
             'category_id'=>$request->category_id,
             'title'=>$request->title,
@@ -89,6 +101,12 @@ class EntryController extends Controller
     public function destroy($id)
     {
         $entry = Entry::query()->find($id);
+        $user = auth()->user();
+
+        if ($user->id != $entry->user_id)
+        {
+            abort(403);
+        }
         $entry->delete();
         return redirect()->back();
     }
