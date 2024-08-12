@@ -26,6 +26,7 @@ class UserController extends Controller
             'name' => ['required','string','max:255'],
             'email' => ['required','string','email','max:255','unique:users'],
             'password' => ['required','string','min:8'],
+            'role'=>['required', Rule::in(['admin', 'customer'])]
 
         ]);
 
@@ -35,6 +36,7 @@ class UserController extends Controller
             'name'=>$request->name,
             'email'=>$request->email,
             'password'=>$hashedPassword,
+            'role'=>$request->role,
             'email_verified_at' => now()
         ]);
         return redirect(route('users.index'));
@@ -49,7 +51,8 @@ class UserController extends Controller
         $validatedData = $request->validate([
             'name' => ['required','string','max:255'],
             'email' => ['required','string','email','max:255',Rule::unique('users', 'email')->ignore($id)],
-            'password'=>['nullable','string','min:8']
+            'password'=>['nullable','string','min:8'],
+            'role'=>['required', Rule::in(['admin', 'customer'])]
         ]);
 
          if ($request->password == null)
@@ -58,6 +61,7 @@ class UserController extends Controller
              $user->update([
                  'name'=>$request->name,
                  'email'=>$request->email,
+                 'role'=>$request->role
              ]);
          }
         else
@@ -67,7 +71,8 @@ class UserController extends Controller
             $user->update([
                 'name'=>$request->name,
                 'email'=>$request->email,
-                'password'=>$hashedPassword
+                'password'=>$hashedPassword,
+                'role'=>$request->role
             ]);
         }
 

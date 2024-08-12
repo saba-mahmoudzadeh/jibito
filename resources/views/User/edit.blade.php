@@ -41,10 +41,25 @@
                 <div class="col-9">
                     <input name="password" type="text" class="form-control" value="{{old('password','')}}">
                 </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-3">
+                    Role
+                </div>
 
+                <div class="col-9">
+                    <div class="form-check form-check-inline ">
+                        <input class="form-check-input" type="radio" name="role" id="inlineRadio1" value="admin" @if(old('role',$user->role)=='admin') checked @endif>
+                        <label class="form-check-label" for="inlineRadio1">Admin</label>
+                    </div>
+
+                    <div class="form-check form-check-inline"  style="margin-top: 10px; margin-bottom: 10px">
+                        <input class="form-check-input" type="radio" name="role" id="inlineRadio2" value="customer" @if(old('role',$user->role)=='customer') checked @endif>
+                        <label class="form-check-label" for="inlineRadio2">Customer</label>
+                    </div>
+                </div>
 
             </div>
-
 
             <div class="row mb-3">
                 <div class="col-3">
