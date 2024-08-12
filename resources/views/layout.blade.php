@@ -18,11 +18,17 @@
 <header>
 
     <div class="logo">
-     @yield('nav')
+        <?php
+            $user=auth()->user();
+            ?>
+        <span class="logo-icon"></span>{{'Hi'." ".$user->name}}
+
+        @yield('nav')
     </div>
 
     <nav>
         <a href="{{route('home.index')}}">Home</a>
+        <a href="{{route('dashboard')}}">Dashboard</a>
         <a href="{{route('categories.index')}}">Categories</a>
         <a href="{{route('entries.index')}}">Entries</a>
         <a href="{{route('users.index')}}">Users</a>
