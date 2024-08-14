@@ -40,6 +40,30 @@
                 <div class="col-9">
                     <input name="password" type="text" class="form-control" value="{{old('password','')}}">
                 </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-3">
+                    Banned
+                </div>
+
+                <div class="col-9">
+                    <div class="form-group">
+                        <label for="banned"></label>
+                        <div class="col-9">
+                            <div class="form-check form-check-inline ">
+                                <input class="form-check-input" type="radio" name="banned" id="banned" value="1"   @foreach($users as $user)@endforeach {{ $user->banned ? 'checked' : '' }}>
+                                <label class="form-check-label" for="inlineRadio1">Yes</label>
+                            </div>
+
+                            <div class="form-check form-check-inline"  style="margin-top: 10px; margin-bottom: 10px">
+                                <input class="form-check-input" type="radio" name="banned" id="banned" value="0"   @foreach($users as $user)@endforeach {{ $user->banned ? 'checked' : '' }}>
+                                <label class="form-check-label" for="inlineRadio2">No</label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
 
             </div>
             <div class="row mb-3">

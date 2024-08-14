@@ -21,7 +21,7 @@
         <?php
             $user=auth()->user();
             ?>
-        <span class="logo-icon"></span>{{'Hi'." ".$user->name}}
+        <span class="logo-icon"></span>{{ucfirst($user->name)}}
 
         @yield('nav')
     </div>

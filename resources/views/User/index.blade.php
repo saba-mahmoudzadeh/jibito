@@ -18,6 +18,7 @@
                 <th scope="col">Id</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
+                <th scope="col">Banned</th>
                 <th scope="col">Role</th>
                 <th scope="col">Action</th>
             </tr>
@@ -27,6 +28,7 @@
                     <td>{{$user->id}}</td>
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
+                    <td>{{ $user->banned ? 'Yes' : 'No' }}</td>
                     <td>{{$user->role}}</td>
 
                     <td>

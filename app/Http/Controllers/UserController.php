@@ -18,7 +18,7 @@ class UserController extends Controller
     public function create()
     {
         $users = User::all();
-        return view('User.create');
+        return view('User.create',compact('users'));
     }
     public function store(Request $request)
     {
@@ -26,7 +26,10 @@ class UserController extends Controller
             'name' => ['required','string','max:255'],
             'email' => ['required','string','email','max:255','unique:users'],
             'password' => ['required','string','min:8'],
-            'role'=>['required', Rule::in(['admin', 'customer'])]
+            'role'=>[ Rule::in(['admin', 'customer'])],
+            'banned' => 'boolean',
+
+
 
         ]);
 
@@ -36,15 +39,15 @@ class UserController extends Controller
             'name'=>$request->name,
             'email'=>$request->email,
             'password'=>$hashedPassword,
-            'role'=>$request->role,
+            'banned' => $validatedData['banned'] ?? false,
             'email_verified_at' => now()
         ]);
         return redirect(route('users.index'));
     }
     public function edit($id)
-    {
+    {   $users = User::all();
        $user = User::query()->find($id);
-       return view('User.edit',compact('user'));
+       return view('User.edit',compact('user','users'));
     }
     public function update(Request $request,$id)
     {
@@ -52,7 +55,8 @@ class UserController extends Controller
             'name' => ['required','string','max:255'],
             'email' => ['required','string','email','max:255',Rule::unique('users', 'email')->ignore($id)],
             'password'=>['nullable','string','min:8'],
-            'role'=>['required', Rule::in(['admin', 'customer'])]
+            'banned' => 'boolean',
+            'role'=>[ Rule::in(['admin', 'customer'])]
         ]);
 
          if ($request->password == null)
@@ -61,7 +65,9 @@ class UserController extends Controller
              $user->update([
                  'name'=>$request->name,
                  'email'=>$request->email,
-                 'role'=>$request->role
+                 'role'=>$request->role,
+                 'banned' => $validatedData['banned'] ?? false,
+
              ]);
          }
         else
@@ -72,7 +78,9 @@ class UserController extends Controller
                 'name'=>$request->name,
                 'email'=>$request->email,
                 'password'=>$hashedPassword,
-                'role'=>$request->role
+                'banned' => $validatedData['banned'] ?? false,
+                'role'=>$request->role,
+
             ]);
         }
 

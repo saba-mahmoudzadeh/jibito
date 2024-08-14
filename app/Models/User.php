@@ -20,6 +20,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'banned',
         'email_verified_at',
         'role'
     ];

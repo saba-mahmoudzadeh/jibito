@@ -50,9 +50,9 @@
     }
 </style>
 
-@section('nav')
+
 <span class="logo-icon"></span>{{'Hi'." ".ucfirst($users->name)}}
-@endsection
+
 <div class="container mt-5">
     <div class="card mx-auto" style="max-width: 400px;">
         <img style="align-self: center" src="{{asset('img/profileImg.png')}}" alt="User Image">
