@@ -13,7 +13,17 @@ class LoginController extends Controller
     {
         if (auth()->attempt($request->validated()))
         {
+            if (auth()->user()->banned == true)
+            {
+                auth()->logout();
+
+                return back()
+                    ->withErrors([
+                        'email' => 'Login forbidden',
+                    ]);
+            }
             return redirect()->intended('dashboard');
+
         }
         return back()
             ->withErrors([
