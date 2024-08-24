@@ -52,12 +52,13 @@
                         <label for="banned"></label>
                         <div class="col-9">
                             <div class="form-check form-check-inline ">
-                                <input class="form-check-input" type="radio" name="banned" id="banned" value="1"   {{ 'banned' ? 'checked' : '' }}>
+                                <input class="form-check-input" type="radio" name="banned" id="banned" value="1"  @if(old('banned',$user->banned)==1) checked @endif>
                                 <label class="form-check-label" for="inlineRadio1">Yes</label>
                             </div>
 
                             <div class="form-check form-check-inline"  style="margin-top: 10px; margin-bottom: 10px">
-                                <input class="form-check-input" type="radio" name="banned" id="banned" value="0"    {{ 'banned' ? 'checked' : '' }}>
+                                <input class="form-check-input" type="radio" name="banned" id="banned" value="0"   @if(old('banned',$user->banned)==0
+) checked @endif>
                                 <label class="form-check-label" for="inlineRadio2">No</label>
                             </div>
                         </div>
@@ -98,7 +99,6 @@
         </form>
 
     </div>
-
 
 @endsection
 
