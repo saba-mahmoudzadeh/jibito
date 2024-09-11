@@ -29,9 +29,9 @@
     <nav>
         <a href="{{route('home.index')}}">Home</a>
         <a href="{{route('dashboard')}}">Dashboard</a>
-        <a href="{{route('categories.index')}}">Categories</a>
+        @if(auth()->user()->role == 'admin') <a href="{{route('categories.index')}}">Categories</a> @endif
         <a href="{{route('entries.index')}}">Entries</a>
-        <a href="{{route('users.index')}}">Users</a>
+        @if(auth()->user()->role == 'admin') <a href="{{route('users.index')}}">Users</a> @endif
 
     </nav>
 </header>

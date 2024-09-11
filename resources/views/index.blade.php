@@ -24,10 +24,27 @@
         <a href="{{route('categories.index')}}">Categories</a>
         <a href="{{route('categories.create')}}"> Create Category</a>
         <a href="{{route('users.index')}}">Users</a>
-        <form style="display: inline-block" method="POST" action="{{ route('logout')}}"  >
-            @csrf
-            <button class="sign-up" style="margin-bottom:10px; align-self: center" type="submit">Logout</button>
-        </form>
+        @auth
+            <form style="display: inline-block" method="POST" action="{{ route('logout')}}"  >
+                @csrf
+                <button class="sign-up" style="margin-bottom:10px; align-self: center" type="submit">Logout</button>
+            </form>
+        @else
+            <a
+                href="{{ route('login') }}"
+                class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+            >
+                Log in
+            </a>
+
+            <a
+                href="{{ route('register') }}"
+                class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+            >
+                Register
+            </a>
+        @endauth
+
     </nav>
 
 </header>
